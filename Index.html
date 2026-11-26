@@ -1,0 +1,772 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toxic International School</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --navy: #071b38;
+  --gold: #e5b443;
+  --white: #ffffff;
+}
+
+body {
+  background: #f5f7fb;
+  color: #222;
+}
+
+header {
+  background: var(--navy);
+  color: white;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: bold;
+  color: var(--gold);
+}
+
+nav {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+.hero {
+  min-height: 480px;
+  background:
+  linear-gradient(#071b38a8,#071b38c9),
+  url("https://images.unsplash.com/photo-1562774053-701939374585?w=1400");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 30px;
+}
+
+.hero h1 {
+  font-size: 43px;
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 13px 23px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+section {
+  padding: 60px 7%;
+}
+
+.heading {
+  text-align: center;
+  color: var(--navy);
+  margin-bottom: 30px;
+  font-size: 29px;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 30px;
+  align-items: center;
+}
+
+.about img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.about p {
+  line-height: 1.8;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 22px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 15px #00000012;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  color: var(--navy);
+  margin: 15px 8px 8px;
+}
+
+.card p {
+  padding: 0 12px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.subjects {
+  background: #eaf0f8;
+}
+
+.subject-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+  gap: 15px;
+}
+
+.subject {
+  background: white;
+  padding: 22px 10px;
+  text-align: center;
+  border-radius: 8px;
+  color: var(--navy);
+  font-weight: bold;
+}
+
+.admission {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+}
+
+.admission h2 {
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.form-box {
+  background: white;
+  max-width: 500px;
+  margin: 25px auto;
+  padding: 25px;
+  border-radius: 10px;
+  color: #222;
+}
+
+input, select {
+  width: 100%;
+  padding: 13px;
+  margin: 9px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.form-box button {
+  width: 100%;
+}
+
+.portal {
+  background: #edf2f8;
+}
+
+.portal-box {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px #00000012;
+}
+
+.portal-box h3 {
+  color: var(--navy);
+  margin-bottom: 15px;
+}
+
+.result {
+  margin-top: 15px;
+  background: #e7f4e9;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+#studentDashboard {
+  margin-top: 20px;
+}
+
+#studentDashboard button {
+  margin: 5px;
+}
+
+.quiz-question {
+  margin: 18px 0;
+  line-height: 1.8;
+}
+
+.quiz-question label {
+  display: block;
+}
+
+footer {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
+  line-height: 2;
+}
+
+footer strong {
+  color: var(--gold);
+}
+
+@media(max-width:600px) {
+  header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 31px;
+  }
+
+  section {
+    padding: 45px 5%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">TOXIC INTERNATIONAL SCHOOL</div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#academics">Academics</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#admission">Admissions</a>
+    <a href="#portal">Student Portal</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HOME -->
+
+<div class="hero" id="home">
+  <div>
+    <h1>WELCOME TO TOXIC INTERNATIONAL SCHOOL</h1>
+    <p>Building Future Leaders Through Quality Education.</p>
+    <p>Knowledge • Discipline • Excellence</p>
+    <a href="#admission" class="btn">Apply for Admission</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <h2 class="heading">About Our School</h2>
+
+  <div class="about">
+    <div>
+      <h2>Excellence in Education</h2>
+      <br>
+      <p>
+        Welcome to Toxic International School, a place where
+        learning, creativity and excellence come together.
+        Our goal is to provide students with quality education,
+        good character and the skills needed to succeed in life.
+      </p>
+      <br>
+      <p>
+        We encourage academic excellence, discipline,
+        leadership and innovation.
+      </p>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900"
+    alt="School building">
+  </div>
+</section>
+
+<!-- ACADEMICS -->
+
+<section id="academics" class="subjects">
+  <h2 class="heading">Our Academic Departments</h2>
+
+  <div class="subject-list">
+    <div class="subject">Science Department</div>
+    <div class="subject">Arts Department</div>
+    <div class="subject">Commercial Department</div>
+    <div class="subject">Technology Department</div>
+  </div>
+
+  <br><br>
+
+  <h2 class="heading">Subjects We Offer</h2>
+
+  <div class="subject-list">
+    <div class="subject">Mathematics</div>
+    <div class="subject">English Language</div>
+    <div class="subject">Biology</div>
+    <div class="subject">Chemistry</div>
+    <div class="subject">Physics</div>
+    <div class="subject">Geography</div>
+    <div class="subject">Economics</div>
+    <div class="subject">Government</div>
+    <div class="subject">Computer Studies</div>
+    <div class="subject">Literature</div>
+    <div class="subject">Further Mathematics</div>
+    <div class="subject">Agricultural Science</div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+  <h2 class="heading">Our School Gallery</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=700">
+      <h3>School Campus</h3>
+      <p>A welcoming learning environment.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=700">
+      <h3>Classrooms</h3>
+      <p>Modern learning experiences.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=700">
+      <h3>Science Laboratory</h3>
+      <p>Practical science and discovery.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=700">
+      <h3>School Library</h3>
+      <p>A place for reading and research.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?w=700">
+      <h3>Sports</h3>
+      <p>Developing teamwork and confidence.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=700">
+      <h3>Graduation</h3>
+      <p>Celebrating student achievements.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ADMISSION -->
+
+<section id="admission" class="admission">
+  <h2>Admissions Are Open!</h2>
+  <p>Join Toxic International School today.</p>
+
+  <div class="form-box">
+    <h3>Admission Enquiry</h3>
+
+    <form onsubmit="admissionForm(event)">
+      <input id="parentName" placeholder="Parent/Guardian Name" required>
+      <input id="childName" placeholder="Student Full Name" required>
+
+      <select id="className" required>
+        <option value="">Select Class</option>
+        <option>JSS 1</option>
+        <option>JSS 2</option>
+        <option>JSS 3</option>
+        <option>SS 1</option>
+        <option>SS 2</option>
+        <option>SS 3</option>
+      </select>
+
+      <input id="parentPhone" type="tel" placeholder="Phone Number" required>
+      <input id="parentEmail" type="email" placeholder="Email Address" required>
+
+      <button class="btn" type="submit">Submit Enquiry</button>
+    </form>
+
+    <p id="admissionMessage"></p>
+  </div>
+</section>
+
+<!-- STUDENT PORTAL -->
+
+<section id="portal" class="portal">
+  <h2 class="heading">Student Portal</h2>
+
+  <div class="portal-box">
+
+    <h3>Student Registration</h3>
+
+    <input id="regName" placeholder="Full Name">
+    <input id="regEmail" type="email" placeholder="Email Address">
+    <input id="regPassword" type="password" placeholder="Create Password">
+
+    <button class="btn" onclick="registerStudent()">Register</button>
+
+    <hr style="margin:25px 0">
+
+    <h3>Student Login</h3>
+
+    <input id="loginEmail" type="email" placeholder="Email Address">
+    <input id="loginPassword" type="password" placeholder="Password">
+
+    <button class="btn" onclick="loginStudent()">Login</button>
+
+    <p id="loginMessage"></p>
+
+    <div id="studentDashboard" class="hidden">
+
+      <h3 id="welcomeStudent"></h3>
+
+      <p>Welcome to your student dashboard.</p>
+
+      <button class="btn" onclick="startQuiz()">Take Online Quiz</button>
+
+      <button class="btn" onclick="showResults()">View Results</button>
+
+      <button class="btn" onclick="logoutStudent()">Logout</button>
+
+      <div id="quizArea"></div>
+      <div id="resultArea"></div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+  <h2 class="heading">Contact Our School</h2>
+
+  <div style="text-align:center;line-height:2">
+    <h3>TOXIC INTERNATIONAL SCHOOL</h3>
+    <p>Quality Education for a Brighter Future.</p>
+    <p>Email: info@toxicinternationalschool.com</p>
+    <p>Phone: Add Your School Phone Number</p>
+    <p>Address: Add Your School Address</p>
+  </div>
+</section>
+
+<footer>
+  <strong>TOXIC INTERNATIONAL SCHOOL</strong>
+  <p>Knowledge • Discipline • Excellence</p>
+  <p>© 2026 Toxic International School. All Rights Reserved.</p>
+</footer>
+
+<script>
+
+// STUDENT REGISTRATION
+
+function registerStudent() {
+
+  let name = document.getElementById("regName").value.trim();
+  let email = document.getElementById("regEmail").value.trim();
+  let password = document.getElementById("regPassword").value;
+
+  if (!name || !email || !password) {
+    alert("Please complete all registration fields.");
+    return;
+  }
+
+  let students = JSON.parse(localStorage.getItem("students")) || [];
+
+  if (students.some(s => s.email === email)) {
+    alert("This email is already registered.");
+    return;
+  }
+
+  students.push({name, email, password});
+
+  localStorage.setItem("students", JSON.stringify(students));
+
+  alert("Registration successful! You can now log in.");
+
+  document.getElementById("regName").value = "";
+  document.getElementById("regEmail").value = "";
+  document.getElementById("regPassword").value = "";
+}
+
+// STUDENT LOGIN
+
+function loginStudent() {
+
+  let email = document.getElementById("loginEmail").value.trim();
+  let password = document.getElementById("loginPassword").value;
+
+  let students = JSON.parse(localStorage.getItem("students")) || [];
+
+  let student = students.find(s =>
+    s.email === email && s.password === password
+  );
+
+  if (!student) {
+    document.getElementById("loginMessage").innerText =
+      "Incorrect email or password.";
+    return;
+  }
+
+  localStorage.setItem("currentStudent", JSON.stringify(student));
+
+  showDashboard(student);
+}
+
+function showDashboard(student) {
+
+  document.getElementById("studentDashboard").classList.remove("hidden");
+
+  document.getElementById("welcomeStudent").innerText =
+    "Welcome, " + student.name;
+
+  document.getElementById("loginMessage").innerText = "";
+
+  document.getElementById("quizArea").innerHTML = "";
+  document.getElementById("resultArea").innerHTML = "";
+}
+
+// RESTORE LOGIN
+
+window.onload = function() {
+
+  let student = JSON.parse(localStorage.getItem("currentStudent"));
+
+  if (student) {
+    showDashboard(student);
+  }
+
+};
+
+// LOGOUT
+
+function logoutStudent() {
+
+  localStorage.removeItem("currentStudent");
+
+  document.getElementById("studentDashboard").classList.add("hidden");
+
+  document.getElementById("quizArea").innerHTML = "";
+  document.getElementById("resultArea").innerHTML = "";
+
+  alert("You have logged out.");
+}
+
+// ONLINE QUIZ
+
+function startQuiz() {
+
+  let questions = [
+    {
+      q: "What is 5 + 5?",
+      options: ["8", "10", "15"],
+      answer: "10"
+    },
+    {
+      q: "Which organ pumps blood?",
+      options: ["Heart", "Liver", "Kidney"],
+      answer: "Heart"
+    },
+    {
+      q: "What is the chemical symbol for water?",
+      options: ["CO2", "O2", "H2O"],
+      answer: "H2O"
+    },
+    {
+      q: "Which planet is known as the Red Planet?",
+      options: ["Earth", "Mars", "Venus"],
+      answer: "Mars"
+    },
+    {
+      q: "What is the opposite of victory?",
+      options: ["Success", "Defeat", "Happiness"],
+      answer: "Defeat"
+    }
+  ];
+
+  let html = "<h3>Online Examination</h3>";
+
+  questions.forEach((q, i) => {
+
+    html += `<div class="quiz-question">
+      <b>${i+1}. ${q.q}</b>`;
+
+    q.options.forEach(option => {
+
+      html += `
+        <label>
+          <input type="radio" name="question${i}" value="${option}"
+          style="width:auto">
+          ${option}
+        </label>`;
+
+    });
+
+    html += "</div>";
+
+  });
+
+  html += `<button class="btn" onclick="submitQuiz()">Submit Examination</button>`;
+
+  document.getElementById("quizArea").innerHTML = html;
+
+  document.getElementById("resultArea").innerHTML = "";
+}
+
+// SUBMIT EXAMINATION
+
+function submitQuiz() {
+
+  let answers = ["10", "Heart", "H2O", "Mars", "Defeat"];
+
+  let score = 0;
+
+  for (let i = 0; i < answers.length; i++) {
+
+    let selected = document.querySelector(
+      'input[name="question' + i + '"]:checked'
+    );
+
+    if (selected && selected.value === answers[i]) {
+      score++;
+    }
+
+  }
+
+  let student = JSON.parse(localStorage.getItem("currentStudent"));
+
+  let results = JSON.parse(localStorage.getItem("results")) || [];
+
+  results.push({
+    name: student.name,
+    score: score,
+    total: answers.length,
+    date: new Date().toLocaleDateString()
+  });
+
+  localStorage.setItem("results", JSON.stringify(results));
+
+  document.getElementById("quizArea").innerHTML = "";
+
+  document.getElementById("resultArea").innerHTML =
+    "<div class='result'><h3>Examination Completed!</h3>" +
+    "<p>Your Score: " + score + " / " + answers.length + "</p>" +
+    "<p>Percentage: " + (score / answers.length * 100) + "%</p></div>";
+
+}
+
+// VIEW RESULTS
+
+function showResults() {
+
+  let student = JSON.parse(localStorage.getItem("currentStudent"));
+
+  let results = JSON.parse(localStorage.getItem("results")) || [];
+
+  let myResults = results.filter(r => r.name === student.name);
+
+  if (myResults.length === 0) {
+    document.getElementById("resultArea").innerHTML =
+      "<p>No examination results available yet.</p>";
+    return;
+  }
+
+  let html = "<h3>Your Examination Results</h3>";
+
+  myResults.forEach(r => {
+    html += `<div class="result">
+      <p>Score: ${r.score}/${r.total}</p>
+      <p>Date: ${r.date}</p>
+    </div>`;
+  });
+
+  document.getElementById("resultArea").innerHTML = html;
+}
+
+// ADMISSION ENQUIRY
+
+function admissionForm(event) {
+
+  event.preventDefault();
+
+  let name = document.getElementById("parentName").value;
+  let child = document.getElementById("childName").value;
+  let schoolClass = document.getElementById("className").value;
+
+  document.getElementById("admissionMessage").innerText =
+    "Thank you, " + name +
+    ". Your admission enquiry for " + child +
+    " (" + schoolClass + ") has been recorded in this demonstration.";
+
+}
+
+</script>
+
+</body>
+</html>
